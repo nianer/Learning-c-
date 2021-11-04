@@ -1,0 +1,7 @@
+
+class network
+{
+public:
+	
+	network();
+};
