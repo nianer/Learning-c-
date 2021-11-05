@@ -1,4 +1,5 @@
 #include <iostream>
+#include <dbg.h>
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
 #include <boost/shared_ptr.hpp>
@@ -15,7 +16,7 @@ int main(){
     sock.connect(ep);
     sock.write_some(buffer("GET /index.html\r\n")); 
     char buff[1024]; 
-    sock.read_some(buffer(buff,1024)); 
+    dbg(sock.read_some(buffer(buff,1024))); 
     sock.shutdown(ip::tcp::socket::shutdown_receive);
     sock.close();
     return 0;
